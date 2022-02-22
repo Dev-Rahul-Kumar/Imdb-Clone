@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './navbar.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 
 
@@ -76,7 +77,7 @@ export default function Navbar() {
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="80" onChange={HandlonChange}/>
                         {/* <button className="btn btn-outline-primary my-2 my-sm-0" type="submit" onClick={fetchData} >Search</button> */}
                     </form>
-                    <button className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit">Sign-in</button>
+                    <Link className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit">Sign-in</Link>
                 </div>
             </nav>
             <div className="container3">
