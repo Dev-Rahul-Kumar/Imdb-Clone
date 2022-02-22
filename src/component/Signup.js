@@ -22,10 +22,9 @@ export default function Signup() {
     const register = () => {
         const { FirstName, LastName, Username, password } = data
         if(FirstName && LastName && Username &&password){
-            // axios.post("http://localhost:9002/Signup", data)
-            // .then(res=> console.log(res))
+            
             fetch("http://localhost:4000/Signup", {
-            method: 'POST', // or 'PUT'
+            method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -64,7 +63,7 @@ export default function Signup() {
 
 
                     <button type='button' className='submit btn btn-success btn-lg' onClick={register}>Register</button>
-                    <p>If you have register already? <Link to="/">Sign in</Link>
+                    <p>If you have register already? <Link to="/Signin">Sign in</Link>
 
                     </p>
 
