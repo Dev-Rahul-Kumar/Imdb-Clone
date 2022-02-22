@@ -1,0 +1,17 @@
+.navbar{
+    background: url(/src/component/img/color-background-stage-cinema-curtain-with-spotlights-and-billboard-JJ5X2N.jpg);
+}
+.navbar .navbar-brand{
+    margin-left: 4rem;
+    color: whitesmoke;
+}
+.form{
+    display: flex;
+    margin-left: 8rem;
+}
+.form .btn{
+    margin-left: 0.7rem;
+}
+.btn2{
+    margin-left: 11rem;
+}
