@@ -2,29 +2,31 @@ import React, { useState } from 'react'
 import { Link , useHistory } from 'react-router-dom';
 import './login.css'
 
-// import axios from 'axios';
+
 
 export default function Signin() {
     const [data, setData] = useState({
         Username: "",
         password: ""
     });
+    
     const Handleonchange = (e) => {
+        console.log(e);
         const name = e.target.name;
         const value = e.target.value
+        
 
-        setData({ ...data, [name]: value })
+        setData({ ...data, [name]: value }) 
     }
 
     const history=useHistory()
 
 
 
-    const Login = ({setLoginuser}) => {
+    const Login = () => {
         const { Username, password } = data
         if (Username && password) {
-            // axios.post("http://localhost:4000/Signin", data)
-            // .then(res=> console.log(res))
+            
             fetch("http://localhost:4000/Signin", {
                 method: 'POST', // or 'PUT'
                 headers: {
@@ -33,12 +35,13 @@ export default function Signin() {
                 body: JSON.stringify(data),
             })
                 .then(response => {
-                    setLoginuser(response.data.Users)
-                    history.push("/")
+                    response.json()
+                    
 
                 })
                 .then(data => {
                     console.log('Success:', data);
+                    history.push("/homepage")
                     
                 })
                 .catch((error) => {

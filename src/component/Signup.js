@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './login.css'
+import { useHistory } from 'react-router-dom';
 
 
 
 
 export default function Signup() {
+    const history=useHistory();
     const [data, setData] = useState({
         FirstName: "",
         LastName: "",
@@ -29,10 +31,11 @@ export default function Signup() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        })
+            })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                history.push("/");
             })
             .catch((error) => {
                 console.error('Error:', error);

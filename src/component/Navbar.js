@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
@@ -20,6 +20,7 @@ export default function Navbar() {
                 return response.json()
             })
             .then(data => {
+                
                 setSame(data.results)
             })
 
@@ -40,7 +41,7 @@ export default function Navbar() {
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="80" onChange={HandlonChange} />
                         
                     </form>
-                    <Link className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit" to="/Signin">Sign-in</Link>
+                    <Link className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit" to="/">Sign-out</Link>
                 </div>
             </nav>
             <div className="container2">

@@ -9,11 +9,12 @@ export default function Homepage() {
   const Getdata = () => {
 
     fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=abdca3eea1b7fb0c1f10423e2fc33135")
+    
       .then(response => {
         return response.json()
       })
       .then(data => {
-        // console.log(data)
+        
         setList(data.results)
       })
   };

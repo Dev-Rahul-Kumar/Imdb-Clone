@@ -12,23 +12,22 @@ function App() {
 
   return (
     <>
-      {/* <Navbar/>
-    <Homepage/> */}
+
 
       <Router>
-      <Navbar />
+
 
 
 
         <div className="App">
           <Switch>
-            <Route exact path="/">
-              
-              <Homepage /> 
+            <Route exact path="/homepage">
+              <Navbar />
+              <Homepage />
 
 
             </Route>
-            <Route exact path="/Signin" >
+            <Route exact path="/" >
               <Signin />
             </Route>
             <Route exact path="/Signup" >
