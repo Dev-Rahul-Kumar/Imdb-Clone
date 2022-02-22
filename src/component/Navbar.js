@@ -32,7 +32,7 @@ export default function Navbar() {
                 return response.json()
             })
             .then(data => {
-                setSame([data.results])
+                setSame(data.results)
             })
 
 
@@ -77,7 +77,7 @@ export default function Navbar() {
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="80" onChange={HandlonChange}/>
                         {/* <button className="btn btn-outline-primary my-2 my-sm-0" type="submit" onClick={fetchData} >Search</button> */}
                     </form>
-                    <Link className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit">Sign-in</Link>
+                    <button className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit">Sign-in</button>
                 </div>
             </nav>
             <div className="container3">
