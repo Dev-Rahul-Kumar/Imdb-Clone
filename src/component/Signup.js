@@ -66,7 +66,7 @@ export default function Signup() {
 
 
                     <button type='button' className='submit btn btn-success btn-lg' onClick={register}>Register</button>
-                    <p>If you have register already? <Link to="/Signin">Sign in</Link>
+                    <p>If you have register already? <Link to="/">Sign in</Link>
 
                     </p>
 
