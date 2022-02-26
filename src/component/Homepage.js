@@ -37,7 +37,7 @@ export default function Homepage() {
             console.log(curElem)
             const picapi="https://image.tmdb.org/t/p/w500";
             return (
-              <div className="container3">
+              <div className="container3" key={key}>
                 <div className="card card2" style={{ width: '18rem' }}>
                   <img className="card-img-top" src={picapi + curElem.poster_path} alt="Card image cap" />
                   <div className="card-body">
