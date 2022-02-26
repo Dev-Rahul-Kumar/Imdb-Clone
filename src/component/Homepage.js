@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import './Homepage.css'
-// import pic1 from "./img/color-background-stage-cinema-curtain-with-spotlights-and-billboard-JJ5X2N.jpg";
+
 
 export default function Homepage() {
   const [list, setList] = useState([]);
+  const [showMore, setShowMore] = useState(false);
 
 
   const Getdata = () => {
@@ -41,7 +42,12 @@ export default function Homepage() {
                   <img className="card-img-top" src={picapi + curElem.poster_path} alt="Card image cap" />
                   <div className="card-body">
                     <h5 className="card-title">{curElem.title}</h5>
-                    <p className="card-text">{curElem.overview}</p>
+                    <p className="card-text">
+                      {showMore ? curElem.overview : `${curElem.overview.substring(0, 50 )}`}
+                      <button className="btn" onClick={() => setShowMore(!showMore)}>
+                        {showMore ? "(Show less)" : "(Show more)"}
+                      </button>
+                    </p>
                   </div>
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item">Popularity: {curElem.popularity}</li>
@@ -62,3 +68,5 @@ export default function Homepage() {
     </>
   );
 }
+
+// {curElem.overview}

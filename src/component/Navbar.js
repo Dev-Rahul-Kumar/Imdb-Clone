@@ -8,26 +8,27 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function Navbar() {
     const [same, setSame] = useState([])
+    const [showMore, setShowMore] = useState(false);
 
     const HandlonChange = (e) => {
         e.preventDefault()
         console.log(e.target.value)
         const text = e.target.value
-        
+
 
         fetch(` https://api.themoviedb.org/3/search/movie?api_key=abdca3eea1b7fb0c1f10423e2fc33135&query=${text}`)
             .then(response => {
                 return response.json()
             })
             .then(data => {
-                
+
                 setSame(data.results)
             })
 
 
     }
 
-     
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,7 +40,7 @@ export default function Navbar() {
 
                     <form className="form  my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="80" onChange={HandlonChange} />
-                        
+
                     </form>
                     <Link className="btn btn2 btn-outline-danger my-2 my-sm-0 text-white" type="submit" to="/">Sign-out</Link>
                 </div>
@@ -60,7 +61,13 @@ export default function Navbar() {
                                     <img className="card-img-top" src={poster + curElem.poster_path} alt="Card image cap" />
                                     <div className="card-body">
                                         <h5 className="card-title">{curElem.title}</h5>
-                                        <p className="card-text">{curElem.overview}</p>
+                                        <p className="card-text">
+                                            {showMore ? curElem.overview : `${curElem.overview.substring(0, 50)}`}
+                                            <button className="btn" onClick={() => setShowMore(!showMore)}>
+                                                {showMore ? "(Show less)" : "(Show more)"}
+                                            </button>
+
+                                        </p>
                                     </div>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item">Original language:{curElem.original_language}</li>
